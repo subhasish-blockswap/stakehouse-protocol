@@ -1,0 +1,231 @@
+<html>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+body {
+    background: linear-gradient(-45deg, #c5bdbb, #353538, #000000, #363f3d);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+.signupSection {
+ background:white;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 600px;
+  text-align: center;
+  display: flex;
+  color: black;
+  border-radius: 16px;
+  
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
+}
+
+.info {
+  position: absolute;
+  width: 45%;
+  text-align: center;
+  margin-top: 50px; 
+  margin-left: 50px;
+
+  h2 {
+    padding-top: 10px;
+    font-weight: 300;
+  }
+  p {
+    font-size: 18px;
+  }
+  .icon {
+    font-size: 8em;
+    padding: 20px 0;
+    color: rgba(10, 180, 180, 1);
+  }
+}
+
+.signupForm {
+  width: 70%;
+  padding: 30px 0;
+  background: rgba(20, 40, 40, .8);
+  transition: .2s;
+  h2 {
+    font-weight: 300;
+  }
+}
+
+.inputFields {
+  margin: 15px 0;
+  font-size: 16px;
+  padding: 10px;
+  width: 250px;
+  border: 1px solid rgba(10, 180, 180, 1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgba(20, 20, 20, .2);
+  color: white;
+  outline: none;
+}
+
+.noBullet {
+  list-style-type: none;
+  padding: 0;
+}
+
+#join-btn {
+  border: 1px solid rgba(10, 180, 180, 1);
+  background: rgba(20, 20, 20, .6);
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: .4s;
+  &:hover {
+    background: rgba(20, 20, 20, .8);
+    padding: 10px 80px;
+  }
+}
+.inforight {
+    width: 45%;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    margin-top: 170px; 
+    left: 0; 
+    right: 0; 
+    margin-left: 50%; 
+    margin-right: auto;
+  
+    h2 {
+      padding-top: 30px;
+      font-weight: 300;
+    }
+    p {
+      font-size: 18px;
+    }
+    .icon {
+      font-size: 8em;
+      padding: 20px 0;
+      color: rgba(10, 180, 180, 1);
+    }
+  }
+  
+  .signupForm {
+    width: 70%;
+    padding: 30px 0;
+    background: rgba(20, 40, 40, .8);
+    transition: .2s;
+    h2 {
+      font-weight: 300;
+    }
+  }
+  .infobottom {
+
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    margin-top: 140px; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    width: 533px; /* I took the width from your post and placed it in css */
+    height: 400px;
+  }
+  .infobottom img {
+   height: 100%;
+   width: 100%;
+}
+  
+  .inputFields {
+    margin: 15px 0;
+    font-size: 16px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid rgba(10, 180, 180, 1);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgba(20, 20, 20, .2);
+    color: white;
+    outline: none;
+  }
+  
+  .noBullet {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #join-btn {
+    border: 1px solid rgba(10, 180, 180, 1);
+    background: rgba(20, 20, 20, .6);
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+    padding: 10px 50px;
+    cursor: pointer;
+    transition: .4s;
+    &:hover {
+      background: rgba(20, 20, 20, .8);
+      padding: 10px 80px;
+    }
+  }
+</style>
+<body>
+  
+    <div class="signupSection">
+        <div class="info">
+          <h2>Following Is The Plot</h2>
+        </div>
+      
+        
+      <div class="infobottom">
+        <img src={{url_for('static', filename= 'squares.png')}}>
+    </div>
+        
+      </div>
+      
+    
+</body>
+</html>
