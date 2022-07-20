@@ -60,8 +60,15 @@ def index():
     return render_template('index.html')
 @app.route('/ethereum', methods=['GET', 'POST'])
 def ethereum():
-            temp= request.form['id']
-            print(temp)
+            i= request.form['id']
+            l= {'CIP_DECRYPTION_REQUESTED': 'Number of Decryptions Requested', 
+            'DEPOSIT_REGISTERED': 'Number of ETH Deposits Registered',
+       'DETH_REWARDS_MINTED': 'Number of dETH Rewards Minted', 'DETH_REWARDS_MINTED_IN_OPEN_INDEX': 'Number of dETH Rewards Minted Events',
+       'DETH_WITHDRAWN_INTO_OPEN_MARKET': 'Number of dETH Rewards Withdrawn Into Open Market Events', 'INDEX_CREATED': 'Number of Index Created Events',
+       'INITIALS_REGISTERED': 'Number Of Intitials Registed Events', 'KNOT_INSERTED_INTO_INDEX': 'Number of Knots Into Index',
+       'KNOT_TRANSFERRED_FROM_INDEX': 'Number Of Knot Transferred From Index Events', 'NEW_HOUSE_MEMBER': 'Number of House Members',
+       'NEW_STAKEHOUSE_REGISTRY_DEPLOYED': 'Number of StakeHouse Registries', 'RAGE_QUIT': 'Number of Rage Quits',
+       'SIGNING_KEY_RE_ENCRYPTION': 'Number of Signing Key Encryptions', 'SLOT_SLASHED': 'Number of Slots Slashed', 'SLOT_TOPPED_UP': 'Number of Slots Topped Up'}
             r = requests.post(url, data=json.dumps(payload), headers=headers)
             json_data = json.loads(r.text)
             df_data = json_data['data']['events']
@@ -70,18 +77,19 @@ def ethereum():
             df['Timestamp']= df['Timestamp'].apply(lambda x: datetime.datetime.fromtimestamp(int(x)).strftime('%Y-%m-%d'))
             df['last']= df['Timestamp'].str.slice(0,7)
             df_july= df[df['last']== '2022-07']
-            df_july_deposit= df[df['key']== str(temp)]
+            df_july_deposit= df[df['key']== str(i)]
             df2= df_july_deposit.groupby(['Timestamp']).size().reset_index(name='count')
             plt.xticks(rotation = 90) # Rotates X-Axis Ticks by 45-degrees
 
             plt.plot(df2['Timestamp'], df2['count'])
             plt.xlabel("Date", labelpad=20)
             plt.legend()
-            plt.title("Number Of Events Registered")
+            plt.title(l[i])
             plt.ylabel("Cumulative ETH Deposited", labelpad=20)
             plt.savefig("./static/squares.png", bbox_inches='tight')
             plt.close()
             return render_template('ethereum.html')
+            
             
 
 
