@@ -85,7 +85,7 @@ def ethereum():
             plt.xlabel("Date", labelpad=20)
             plt.legend()
             plt.title(l[i])
-            plt.ylabel("Cumulative ETH Deposited", labelpad=20)
+            plt.ylabel(l[i], labelpad=20)
             plt.savefig("./static/squares.png", bbox_inches='tight')
             plt.close()
             return render_template('ethereum.html')
